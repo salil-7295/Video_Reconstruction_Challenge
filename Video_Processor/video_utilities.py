@@ -83,8 +83,8 @@ def display_frames(frame_list: List[np.array]) -> Any:
 
 def get_sorted_frames(frame_directory: Dict[str, Any], distance_metrics: List[Tuple]) -> List[np.array]:
     """
-    The function to generate frame index along with array image of frames and frame index along with
-    computed frame histogram values as Dictionaries
+    The function to get the sorted list of array images of the frames
+        based on the distance metrics computed.
 
     Parameters
     -----------
