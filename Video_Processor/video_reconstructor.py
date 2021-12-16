@@ -146,12 +146,7 @@ class video_Reconstructor():
 
         Returns
         --------
-        frame_directory: Tuple[Dict[str, Any]
-            The dictionary containing frame name as key and array image of frame as values.
-
-        histogram_directory : Dict[str, Any]
-            The dictionary containing frame name as key and corresponding computed histogram
-            as values.
+        The Reconstructed video will be saved to the notebooks' directory of the project.
 
         """
 
@@ -166,6 +161,10 @@ class video_Reconstructor():
 
 
 """
+    -----------
+    Main Method 
+    ------------
+    
     @staticmethod
     def get_reconstructed_video(
                                 images, index,
@@ -173,6 +172,7 @@ class video_Reconstructor():
                                 method="OPENCV",
                                 metric=cv2.HISTCMP_CORREL,
                                 hash_threshold=20):
+    
         result = video.frame_sort_by_opencv(index, reference_image, metric)
         sorted_frames = get_sorted_frames(images, result)
         clean_frames = eliminate_outlier_frame(images, result, hash_threshold)

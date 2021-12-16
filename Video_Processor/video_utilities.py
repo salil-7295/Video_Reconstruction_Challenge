@@ -56,7 +56,7 @@ def get_frames_from_video(file_path: str) -> Any:
     return FRAME_DIRECTORY_PATH
 
 
-def display_frames(frame_list: List[np.array()]) -> Any:
+def display_frames(frame_list: List[np.array]) -> Any:
     """
     The function to visualize list of all frames passed as a list via Subplot.
     Helpful to see the cohesion between adjacent video frames to switch similarity methods.
@@ -81,7 +81,7 @@ def display_frames(frame_list: List[np.array()]) -> Any:
         plt.imshow(frame_list[i - 1])
 
 
-def get_sorted_frames(frame_directory: Dict[str, Any], distance_metrics: List[Tuple]) -> List[np.array()]:
+def get_sorted_frames(frame_directory: Dict[str, Any], distance_metrics: List[Tuple]) -> List[np.array]:
     """
     The function to generate frame index along with array image of frames and frame index along with
     computed frame histogram values as Dictionaries
@@ -124,6 +124,10 @@ def eliminate_outlier_frame(frame_directory: Dict[str, Any], distance_metrics: L
         The List of tuples sorted, where each tuple has frame name and corresponding
             similarity score with respect to the image reference chosen.
 
+    hash_threshold: int
+        By Default : 20
+        The threshold can be used to eliminate the outlier images.
+
     Returns
     --------
         The sorted List of array images of frames by eliminating the outlier frames.
@@ -144,6 +148,3 @@ def eliminate_outlier_frame(frame_directory: Dict[str, Any], distance_metrics: L
     clean_frames = result_frames[0:outlier_hashes[0] + 1]
 
     return clean_frames
-
-
-
